@@ -17,22 +17,24 @@
 .todo-header {
     color: rgb(27, 5, 45);
     width: fit-content;
+    font-size: clamp(1rem, 5vw, 1.5rem);
     margin: 1rem auto;
 }
 
 .todo-form {
     display: flex;
     justify-content: space-around;
-    width: 90%;
+    width: 100%;
+    max-width: 600px;
     margin: auto;
-    gap: 2rem;
+    gap: 1rem;
 }
 
 .todo-input {
     width: 85%;
     padding: 1rem;
     border: none;
-    font-size: 1.1rem;
+    font-size: clamp(.8rem, 2vw, 1.1rem);
     border-radius: #fafafa;
     border-radius: 5px;
 
@@ -43,7 +45,7 @@
 }
 
 .submit-btn {
-    font-size: 1.1rem;
+    font-size: clamp(.8rem, 2vw, 1.1rem);
     background-color: rgb(84, 11, 140);
     color: #fafafa;
     border: none;
