@@ -1,0 +1,63 @@
+.container {
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    width: 60vw;
+    background-color: #e9e8f1;
+    margin: 5rem auto;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 1rem 1rem 2rem;
+    min-width: 350px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2);
+
+}
+
+.todo-header {
+    color: rgb(27, 5, 45);
+    width: fit-content;
+    margin: 1rem auto;
+}
+
+.todo-form {
+    display: flex;
+    justify-content: space-around;
+    width: 90%;
+    margin: auto;
+    gap: 2rem;
+}
+
+.todo-input {
+    width: 85%;
+    padding: 1rem;
+    border: none;
+    font-size: 1.1rem;
+    border-radius: #fafafa;
+    border-radius: 5px;
+
+}
+
+.todo-input:focus {
+    outline: none;
+}
+
+.submit-btn {
+    font-size: 1.1rem;
+    background-color: rgb(84, 11, 140);
+    color: #fafafa;
+    border: none;
+    padding: 0 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.submit-btn:hover {
+    background-color: rgb(85, 6, 146);
+    scale: 1.03;
+}
+
+.submit-icon {
+    font-size: 2rem;
+}
