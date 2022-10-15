@@ -90,7 +90,7 @@ const Todos = () => {
                 <div className="todos">
                
                     <div className="to-be-done">
-                        <h2>{toBeDone.length} task{toBeDone.length > 1 && 's'} left </h2>
+                        <h2>{toBeDone.length} task{toBeDone.length > 1 && 's'} {toBeDone.length > 0 && 'left'} </h2>
                         {toBeDone}
                     </div>
 
