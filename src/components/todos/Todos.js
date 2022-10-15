@@ -3,6 +3,7 @@ import AddTodoForm from '../addTodoForm/AddTodoForm';
 import { v4 as uuidv4 } from 'uuid';
 import './Todos.css'
 import { MdRemoveCircle } from "react-icons/md";
+import { BiEdit } from "react-icons/bi";
 import { ImSad2, ImCheckboxUnchecked,  ImCheckboxChecked} from "react-icons/im";
 
 
@@ -46,7 +47,8 @@ const Todos = () => {
                 
                 <div className={`todo-wrapper ${todo.done && 'completed'}`} key={todo.id} completion={todo.done.toString()}>
                     {isTodoDone}
-                    <p className="todo-text">{todo.todoText}</p>
+                    <p className="todo-text" contentEditable='true'>{todo.todoText}</p>
+                    <BiEdit className='edit' />
                     <MdRemoveCircle className='remove' onClick={deleteHandler}/>
                 </div>
         )
@@ -78,6 +80,7 @@ const Todos = () => {
     }
 
 
+
     return (
 
         <div>
@@ -87,19 +90,19 @@ const Todos = () => {
                 <div className="todos">
                
                     <div className="to-be-done">
-                        <h2>To do ({toBeDone.length}) </h2>
+                        <h2>{toBeDone.length} task{toBeDone.length > 1 && 's'} left </h2>
                         {toBeDone}
                     </div>
 
 
                     <div className="completed-todos">
-                        <h2>Completed ({completed.length})</h2>
+                        <h2>{completed.length} accomplishment{completed.length > 1 && 's'}</h2>
                         {completed}
                     </div>
                 </div> 
                 :
 
-                <h3 className='nothong-to-do'><span>Nothing to do? - Your life sucks!</span> <ImSad2 /> </h3>
+                <h3 className='nothing-to-do'><span>Nothing to do? - Your life sucks!</span> <ImSad2 /> </h3>
             }
 
     

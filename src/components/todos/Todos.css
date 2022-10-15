@@ -23,7 +23,7 @@
     width: 40%;
     gap: 1.2rem;
     position: relative;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.722);
     padding: 2rem;
     height: fit-content;
     min-height: 200px;
@@ -42,11 +42,11 @@ h2 {
 .todo-wrapper {
     display: flex;
     justify-content: space-between;
-    gap: 1rem;
+    gap: .5rem;
     width: fit-content;
     max-width: 80%;
     align-items: center;
-    background-color: rgb(248, 245, 251);
+    background-color: rgba(248, 245, 251, 0.856);
     padding: 0 1rem;
     border-radius: 5px;
     box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2);
@@ -60,7 +60,8 @@ h2 {
 
 
 .todo-text {
-    font-size: 1.1rem;
+    font-size: clamp(1.1rem, 4w, 1.3rem);
+    margin: 1.2rem .4rem;
     width: 70%;
     word-wrap: break-word;
     outline: none;
@@ -76,8 +77,21 @@ h2 {
 .check-icon {
     align-items: center;
     cursor: pointer;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     opacity: 1;
+}
+
+.edit {
+    font-size: 1.5rem;
+    color: darkgray;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.edit:hover {
+    color: rgb(27, 5, 45);
+    opacity: .8;
+
 }
 
 
@@ -93,10 +107,10 @@ h2 {
     color: red;
 }
 
-.nothong-to-do {
+.nothing-to-do {
     width: fit-content;
     margin: auto;
-    color: rgb(220, 212, 227);
+    color: #fafafa;
     display: flex;
     align-items: center;
     gap: .5rem;

@@ -26,7 +26,7 @@ const AddTodoForm = ( {addNewTodo} ) => {
                         type="text" value={addTodo}
                         onChange={(e) => setAddTodo(e.target.value)}
                         required 
-                        placeholder="✍🏿 Add a todo"
+                        placeholder="✍🏿 Add Task"
                     />
                     <button type='submit' className='submit-btn'><IoMdAdd className='submit-icon'/></button>
                 </form>

@@ -3,14 +3,14 @@
     display: flex;
     flex-direction: column;
     width: 60vw;
-    background-color: #e9e8f1;
+    background-color: #f5f4fa;
     margin: 5rem auto;
     font-family: Arial, Helvetica, sans-serif;
     padding: 1rem 1rem 2rem;
     min-width: 350px;
     box-sizing: border-box;
     border-radius: 5px;
-    box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.1);
 
 }
 
@@ -33,6 +33,7 @@
 .todo-input {
     width: 85%;
     padding: 1rem;
+    caret-color: orangered;
     border: none;
     font-size: clamp(.8rem, 2vw, 1.1rem);
     border-radius: #fafafa;
