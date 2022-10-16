@@ -5,6 +5,7 @@ import './Todos.css'
 import { MdRemoveCircle } from "react-icons/md";
 import { BiEdit } from "react-icons/bi";
 import { ImSad2, ImCheckboxUnchecked,  ImCheckboxChecked} from "react-icons/im";
+import { useEffect } from 'react';
 
 
 const Todos = () => {
@@ -13,6 +14,14 @@ const Todos = () => {
         // {id: uuidv4(), todoText: 'hello todo', done: false},
         // {id: uuidv4(), todoText: 'hello alreadey done', done: true},
     ])
+
+    useEffect(() => {
+        getLocalTodos()
+    }, [])
+
+    useEffect(() => {
+        saveLocalTodos();
+    },[todos]);
     
 
     const todoItem = todos.map((todo) => {
@@ -77,7 +86,23 @@ const Todos = () => {
             todoText: newTodo,
             done: false
         }])
+        
     }
+
+    const saveLocalTodos = () => {
+        localStorage.setItem("todos", JSON.stringify(todos));
+    }
+
+    const getLocalTodos = () => {
+        if (localStorage.getItem("todos") === null) {
+            localStorage.setItem("todos", JSON.stringify([]));
+        } else {
+            let localTodos = JSON.parse(localStorage.getItem("todos"))
+            setTodos(localTodos);
+        }
+    }
+
+    
 
 
 
