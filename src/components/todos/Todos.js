@@ -10,10 +10,7 @@ import { useEffect } from 'react';
 
 const Todos = () => {
 
-    const [todos, setTodos] = useState([
-        // {id: uuidv4(), todoText: 'hello todo', done: false},
-        // {id: uuidv4(), todoText: 'hello alreadey done', done: true},
-    ])
+    const [todos, setTodos] = useState([]);
 
     useEffect(() => {
         getLocalTodos()
@@ -56,7 +53,7 @@ const Todos = () => {
                 
                 <div className={`todo-wrapper ${todo.done && 'completed'}`} key={todo.id} completion={todo.done.toString()}>
                     {isTodoDone}
-                    <p className="todo-text" contentEditable='true'>{todo.todoText}</p>
+                    <p className="todo-text">{todo.todoText}</p>
                     <BiEdit className='edit' />
                     <MdRemoveCircle className='remove' onClick={deleteHandler}/>
                 </div>
