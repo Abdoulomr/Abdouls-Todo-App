@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import AddTodoForm from '../addTodoForm/AddTodoForm';
 import { v4 as uuidv4 } from 'uuid';
 import './Todos.css'
 import { MdRemoveCircle } from "react-icons/md";
 import { BiEdit } from "react-icons/bi";
 import { ImSad2, ImCheckboxUnchecked,  ImCheckboxChecked} from "react-icons/im";
-import { useEffect } from 'react';
+
 
 
 const Todos = () => {
@@ -18,7 +18,11 @@ const Todos = () => {
 
     useEffect(() => {
         saveLocalTodos();
-    },[todos]);
+    }, [todos]);
+
+//     const todoRef = useRef(null)
+// 
+//     console.log(todoRef); 
     
 
     const todoItem = todos.map((todo) => {
@@ -41,6 +45,7 @@ const Todos = () => {
             }))
         }
 
+
         // checking if it's completed to put the right icon
         const isTodoDone = todo.done ?
         <ImCheckboxChecked className='check-icon' onClick={handleCompletion} /> 
@@ -50,10 +55,16 @@ const Todos = () => {
         
 
         return  (
-                
-                <div className={`todo-wrapper ${todo.done && 'completed'}`} key={todo.id} completion={todo.done.toString()}>
+                <div 
+                className={`todo-wrapper ${todo.done && 'completed'}`}
+                key={todo.id}
+                completion={todo.done.toString()}
+                >
                     {isTodoDone}
-                    <p className="todo-text">{todo.todoText}</p>
+                    <p
+                    className="todo-text"
+                    >{todo.todoText}
+                    </p>
                     <BiEdit className='edit' />
                     <MdRemoveCircle className='remove' onClick={deleteHandler}/>
                 </div>
@@ -61,31 +72,42 @@ const Todos = () => {
     })
 
 
+
+
+
     // Seperating Todos and Completed
 
     const toBeDone = todoItem.filter((el) => {
-        // console.log(el.props.completion)
         return (
             el.props.completion === "false"
         )
     })
 
     const completed = todoItem.filter((el) => {
-        // console.log(el.props.completion)
         return (
             el.props.completion === "true"
         )
     })
-    
+
+
+
+
+    // adding new todo
     const addNewTodo = (newTodo) => {
         setTodos([...todos, {
             id: uuidv4(),
-            todoText: newTodo,
-            done: false
+            todoText:  newTodo,
+            done: false,
+            editable: false,
         }])
         
     }
 
+
+
+
+
+    // Saving data to the browser local starage
     const saveLocalTodos = () => {
         localStorage.setItem("todos", JSON.stringify(todos));
     }
@@ -102,11 +124,12 @@ const Todos = () => {
     
 
 
-
     return (
 
         <div>
             <AddTodoForm addNewTodo={addNewTodo} />
+
+
             {
                todos.length > 0 ?
                 <div className="todos">

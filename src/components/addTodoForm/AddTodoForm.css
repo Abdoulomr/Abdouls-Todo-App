@@ -47,7 +47,7 @@
 
 .submit-btn {
     font-size: clamp(.8rem, 2vw, 1.1rem);
-    background-color: rgb(84, 11, 140);
+    background-color: #540b8c;
     color: #fafafa;
     border: none;
     padding: 0 1rem;
