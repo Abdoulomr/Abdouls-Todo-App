@@ -1,66 +1,64 @@
 .container {
-    max-width: 800px;
-    display: flex;
-    flex-direction: column;
-    width: 60vw;
-    background-color: #f5f4fa;
-    margin: 5rem auto;
-    font-family: Arial, Helvetica, sans-serif;
-    padding: 1rem 1rem 2rem;
-    min-width: 350px;
-    box-sizing: border-box;
-    border-radius: 5px;
-    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.1);
-
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  width: 90vw;
+  background-color: #f5f4fa;
+  margin: 3rem auto;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 1rem 1rem 2rem;
+  /* min-width: 350px; */
+  box-sizing: border-box;
+  border-radius: 5px;
+  box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.1);
 }
 
 .todo-header {
-    color: rgb(27, 5, 45);
-    width: fit-content;
-    font-size: clamp(1rem, 5vw, 1.5rem);
-    margin: 1rem auto;
+  color: rgb(27, 5, 45);
+  width: fit-content;
+  font-size: clamp(1rem, 5vw, 1.5rem);
+  margin: 1rem auto;
 }
 
 .todo-form {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    max-width: 600px;
-    margin: auto;
-    gap: 1rem;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+  gap: 1rem;
 }
 
 .todo-input {
-    width: 85%;
-    padding: 1rem;
-    caret-color: orangered;
-    border: none;
-    font-size: clamp(.8rem, 2vw, 1.1rem);
-    border-radius: #fafafa;
-    border-radius: 5px;
-
+  width: 85%;
+  padding: 1rem;
+  caret-color: orangered;
+  border: none;
+  font-size: clamp(0.8rem, 2vw, 1.1rem);
+  border-radius: #fafafa;
+  border-radius: 5px;
 }
 
 .todo-input:focus {
-    outline: none;
+  outline: none;
 }
 
 .submit-btn {
-    font-size: clamp(.8rem, 2vw, 1.1rem);
-    background-color: #540b8c;
-    color: #fafafa;
-    border: none;
-    padding: 0 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: .3s;
+  font-size: clamp(0.8rem, 2vw, 1.1rem);
+  background-color: #540b8c;
+  color: #fafafa;
+  border: none;
+  padding: 0 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 .submit-btn:hover {
-    background-color: rgb(85, 6, 146);
-    scale: 1.03;
+  background-color: rgb(85, 6, 146);
+  scale: 1.03;
 }
 
 .submit-icon {
-    font-size: 2rem;
+  font-size: 2rem;
 }
