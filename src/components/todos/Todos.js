@@ -9,26 +9,22 @@ import { ImSad2, ImCheckboxUnchecked, ImCheckboxChecked } from "react-icons/im";
 const Todos = () => {
   const [todos, setTodos] = useState([]);
 
-  const [filterSelect, setFilterSelect] = useState({
-    selected: "",
-    display: "",
-  });
+  const [filterSelect, setFilterSelect] = useState("all-tasks");
 
   useEffect(() => {
     getLocalTodos();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     saveLocalTodos();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [todos]);
-
-  //   useEffect(() => {
-  //     handleFilter();
-  //   }, [filterSelect.selected]);
 
   useEffect(() => {
     todosToDisplay();
-  }, [filterSelect.selected]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [filterSelect]);
 
   //
 
@@ -108,41 +104,35 @@ const Todos = () => {
     }
   };
 
-  //   const handleFilter = () => {
-  //     if (filterSelect.selected.toString() === "all-tasks") {
-  //       setFilterSelect({
-  //         display: todoItem,
-  //       });
-  //     } else if (filterSelect.selected.toString() === "tasks") {
-  //       setFilterSelect({
-  //         display: toBeDone,
-  //       });
-  //     } else if (filterSelect.selected.toString() === "completed") {
-  //       setFilterSelect({
-  //         display: completed,
-  //       });
-  //     }
-  //   };
-
   const todosToDisplay = () => {
-    if (filterSelect.selected === "completed") {
+    if (filterSelect === "completed") {
       return completed;
-    } else if (filterSelect.selected === "tasks") {
+    } else if (filterSelect === "tasks") {
       return toBeDone;
     } else {
       return todoItem;
     }
   };
 
+  const emptyHandler = () => {
+    if ((filterSelect === "completed") & (completed.length < 1)) {
+      return <p>No task completed yet</p>;
+    } else if ((filterSelect === "tasks") & (toBeDone.length < 1)) {
+      return <p>You've completed all your tasks !</p>;
+    } else {
+      return "";
+    }
+  };
+
   return (
-    <div>
+    <div className="todos-container">
       <AddTodoForm addNewTodo={addNewTodo} />
 
       {todos.length > 0 ? (
         <div className="todos">
           <div className="tasks">
             <h2>
-              {todoItem.length} task{todoItem.length > 1 && "s"}{" "}
+              All task{todoItem.length > 1 && "s"}: {todoItem.length}
             </h2>
             <div className="filter-options-wrapper">
               <span>Filtrer:</span>
@@ -151,9 +141,7 @@ const Todos = () => {
                 name="statuts"
                 className="filter-selecter"
                 onChange={(e) => {
-                  setFilterSelect({
-                    selected: e.target.value,
-                  });
+                  setFilterSelect(e.target.value);
                 }}
               >
                 <option value="all-tasks">All-tasks</option>
@@ -163,6 +151,7 @@ const Todos = () => {
             </div>
 
             {todosToDisplay()}
+            {emptyHandler()}
           </div>
         </div>
       ) : (
